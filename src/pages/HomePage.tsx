@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom'
 import { SectionHeading } from '../components/SectionHeading'
 import { CategoryCard } from '../components/CategoryCard'
 import { ProductCard } from '../components/ProductCard'
-import { BuilderComponent } from '@builder.io/react'
-import '../builder'
+
 
 const categories = [
   {
