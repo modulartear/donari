@@ -76,11 +76,7 @@ export function Navbar({
     >
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-neon/10 ring-1 ring-brand-neon/30">
-            <span className="text-xs font-extrabold tracking-widest text-brand-neon">
-              {brand.logo ?? 'DA'}
-            </span>
-          </div>
+          <div className="h-9 w-9 rounded-lg bg-brand-neon/10 ring-1 ring-brand-neon/30" />
           <div className="leading-tight">
             <div className="text-sm font-extrabold tracking-wide text-white">
               {brand.title}
@@ -160,4 +156,3 @@ export function Navbar({
     </header>
   )
 }
-
