@@ -1,73 +1,144 @@
-# React + TypeScript + Vite
+# DON ARII - Gamer Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce platform for gaming hardware and peripherals built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v7
+- **Backend Services**:
+  - Firebase (Authentication, Database)
+  - Mercado Pago (Payment Processing)
+  - Builder.io (CMS)
+- **Hosting**: Vercel
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd donari
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Create a `.env.local` file with your environment variables:
+```bash
+cp .env.example .env.local
+```
+
+4. Fill in your environment variables:
+```
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+VITE_ADMIN_EMAILS=admin@example.com
+MP_ACCESS_TOKEN=your_mercado_pago_access_token
+```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+### Build
+
+Create a production build:
+```bash
+npm run build
+```
+
+Preview the production build:
+```bash
+npm run preview
+```
+
+## Deployment to Vercel
+
+This project is configured for deployment on Vercel. The `vercel.json` file contains the build configuration.
+
+### Steps to Deploy
+
+1. **Push your code to GitHub** (or your preferred Git provider)
+
+2. **Import project on Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Select your repository
+   - Vercel will auto-detect Vite configuration
+
+3. **Set Environment Variables**:
+   - In Vercel Project Settings → Environment Variables
+   - Add all variables from `.env.example`:
+     - `VITE_FIREBASE_API_KEY`
+     - `VITE_FIREBASE_AUTH_DOMAIN`
+     - `VITE_FIREBASE_PROJECT_ID`
+     - `VITE_FIREBASE_STORAGE_BUCKET`
+     - `VITE_FIREBASE_MESSAGING_SENDER_ID`
+     - `VITE_FIREBASE_APP_ID`
+     - `VITE_ADMIN_EMAILS`
+     - `MP_ACCESS_TOKEN`
+
+4. **Deploy**:
+   - Click "Deploy"
+   - Vercel will build and deploy your application
+
+### Environment Variables Notes
+
+- Variables prefixed with `VITE_` are exposed to the client-side code
+- `MP_ACCESS_TOKEN` is server-side only (API routes)
+- Never commit `.env.local` or `.env` files to version control
+- Use Vercel's environment variable management for production secrets
+
+## Project Structure
+
+```
+src/
+├── assets/          # Static assets
+├── components/      # Reusable React components
+├── context/         # React Context (Auth, Cart)
+├── hooks/           # Custom React hooks
+├── layouts/         # Page layouts
+├── pages/           # Page components
+├── services/        # API and service functions
+├── styles/          # Global styles
+└── main.tsx         # Entry point
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Features
+
+- Product catalog with categories
+- Shopping cart management
+- User authentication
+- Order checkout with Mercado Pago
+- Admin dashboard for product management
+- Responsive design for all devices
+
+## License
+
+Proprietary - All rights reserved

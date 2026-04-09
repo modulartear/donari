@@ -76,11 +76,19 @@ export function Navbar({
     >
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand-neon/10 ring-1 ring-brand-neon/30">
-            <span className="text-xs font-extrabold tracking-widest text-brand-neon">
-              {brand.logo ?? 'DA'}
-            </span>
-          </div>
+          <div
+            className="rounded-lg"
+            style={{
+              width: '350px',
+              height: '70px',
+              backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F55623dfe1dc64711a18be5341de58739%2F29c6ed174557423394e484a38fef6b81)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              alignSelf: 'center',
+              flexGrow: 0,
+            }}
+          />
           <div className="leading-tight">
             <div className="text-sm font-extrabold tracking-wide text-white">
               {brand.title}
@@ -160,4 +168,3 @@ export function Navbar({
     </header>
   )
 }
-
